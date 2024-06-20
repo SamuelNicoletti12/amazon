@@ -7,6 +7,9 @@ import { AppComponent } from './app.component';
 import { ProdottoPreviewComponent } from './components/prodotto-preview/prodotto-preview.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ProdottiVetrinaComponent } from './components/prodotti-vetrina/prodotti-vetrina.component';
+import { RatingComponent } from './components/rating/rating.component';
+import { CarrelloComponent } from './components/carrello/carrello.component';
+import { CarrelloMiniComponent } from './components/carrello-mini/carrello-mini.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { ProdottiVetrinaComponent } from './components/prodotti-vetrina/prodotti
 
     ProdottoPreviewComponent,
     HeaderComponent,
-    ProdottiVetrinaComponent
+    ProdottiVetrinaComponent,
+    RatingComponent,
+    CarrelloComponent,
+    CarrelloMiniComponent
   ],
   imports: [
     BrowserModule,
