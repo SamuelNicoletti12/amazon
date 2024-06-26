@@ -12,3 +12,10 @@ export type Rating = {
     rate: number
     count: number
 }
+
+export interface User {
+    id: number;
+    nome: string;
+    email: string;
+    saluta(): void;
+}

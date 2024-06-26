@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ProdottiService } from '../../services/prodotti.service';
 
 @Component({
   selector: 'app-header',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  categorie: string[] = [];
 
+  // ps = inject(ProdottiService);
+
+  constructor(private ps: ProdottiService) {
+
+  }
+
+  ngOnInit(): void {
+    this.ps.getCategories().subscribe(cats => {
+      this.categorie = cats;
+    })
+  }
 }

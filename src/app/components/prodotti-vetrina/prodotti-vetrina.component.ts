@@ -16,7 +16,9 @@ export class ProdottiVetrinaComponent implements OnInit {
 
   }
   ngOnInit(): void {     //funzione che lancia angular quando il componente è pronto
-    this.prodotti = this.ps.getProdotti()
+    this.ps.getProdotti().subscribe(dati => {
+      this.prodotti = dati;
+    });
 
   }
 }

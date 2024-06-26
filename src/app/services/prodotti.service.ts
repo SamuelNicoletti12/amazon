@@ -1,18 +1,32 @@
 import { Injectable } from '@angular/core';
-import { PRODOTTI } from "../data/prodotti";
+// import { PRODOTTI } from "../data/prodotti";
 import { Prodotto } from '../models/prodotto';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProdottiService {
+
+  constructor(private http: HttpClient) {
+
+  }
   prodottiACarrello: Prodotto[] = [];
 
-  constructor() { }
+
 
   getProdotti() {
-    return PRODOTTI as Prodotto[]
+    return this.http.get<Prodotto[]>("https://fakestoreapi.com/products");
+
+    // generics= il modo di passare un tipo come parametro
+
+    // return PRODOTTI as Prodotto[]
+  }
+
+
+  getCategories() {
+    return this.http.get<string[]>("https://fakestoreapi.com/products/categories");
   }
 
   aggiungiACarrello(prodotto: Prodotto) {
