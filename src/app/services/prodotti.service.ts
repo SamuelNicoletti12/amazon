@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 // import { PRODOTTI } from "../data/prodotti";
 import { Prodotto } from '../models/prodotto';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -16,12 +17,17 @@ export class ProdottiService {
 
 
 
-  getProdotti() {
+  getProdotti(): Observable<Prodotto[]> {
     return this.http.get<Prodotto[]>("https://fakestoreapi.com/products");
 
     // generics= il modo di passare un tipo come parametro
 
     // return PRODOTTI as Prodotto[]
+  }
+
+  getProdottiById(id: string): Observable<Prodotto> {
+    return this.http.get<Prodotto>("https://fakestoreapi.com/products/" + id);
+
   }
 
 
